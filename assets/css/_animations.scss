@@ -1,0 +1,15 @@
+@include keyframes(pulsate) {
+  0% {opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {opacity: 0.0;}
+}
+
+.pulse {
+  opacity: 0;
+  @include animation(pulsate 3s ease-out infinite);
+}
+
+.noise {
+  opacity: 0;
+  @include animation(pulsate 0.3s ease-out infinite);
+}

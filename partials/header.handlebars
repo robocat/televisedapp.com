@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="{{ site.description }}">
+        <meta name="keywords" content="{{ site.keywords }}">
+        <title>{{ site.title }} ~ {{ template.title }}</title>
+
+        <meta name="og:title" content="{{ site.title }}" />
+        <meta name="og:site_name" content="{{ site.fb.appName }}" />
+        <meta name="og:app_id" content="{{ site.fb.appId }}" />
+        <meta name="og:url" content="{{ site.url }}" />
+        <meta name="og:description" content="{{ site.description }}" />
+        <meta name="og:image" content="/apple-touch-icon.png" />
+        <meta name="og:locale" content="en_US" />
+        <meta name="og:type" content="website" />
+        <meta property="fb:admins" content="williw">
+    	
+        <link rel='stylesheet' href='/css/style.css'>
+
+        <!-- TypeKit -->
+		<script type="text/javascript" src="//use.typekit.net/vvv1ukq.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        {{#unless config.production }}
+            {{> reload }}
+        {{/unless}}
+    
+        <link rel="image_src" href="/apple-touch-icon.png" /> 
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+</head>
+<body>
+	<div class="container">

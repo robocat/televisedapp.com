@@ -1,0 +1,628 @@
+$max-with: 1000px;
+$asset-pipeline: true;
+
+@import "normalize";
+@import "bourbon";
+@import "neat";
+@import "animations";
+
+
+$default_font: "proxima-nova", sans-serif;
+$default_size: 12pt / 28px;
+
+body {
+  font: $default_size $default_font;
+  background-color: #020815;
+  line-height: 28px;
+  color: #fff;
+}
+
+h1, h2, h3, p, a {
+	font-family: $default_font;
+}
+
+h1 {
+	line-height: 42px;
+}
+
+
+.header-container, .info-container, .reviews-container, .footer-container, .features-container {
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+header, .info, .reviews, footer, .features {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.aside, .bside {
+	float: left;
+}
+
+.bside:after, .clearboth {
+	clear: both;
+}
+
+.header-container {
+	background: image-url("header_bg.jpg") top center no-repeat;
+	height: 750px;
+	position: relative;
+}
+
+.header {
+	position: relative;
+
+	.video {
+		height: 539px;
+		position: absolute;
+		width: 959px;
+
+		z-index: 5;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.frame {
+		@extend .pulse;
+
+		background: image-url("videoframe.png") top center no-repeat;
+		position: absolute;
+		top: 70px;
+		left: -30px;
+		width: 1020px;
+		height: 600px;
+
+		z-index: 10;
+	}
+
+	.overlay {
+		@include retina-image("previewimage", 959px 539px, "jpg");
+		width: 960px;
+		height: 540px;
+		position: absolute;
+		top: 100px;
+
+		z-index: 30;
+	}
+
+	.vimeo_iframe {
+		position: absolute;
+		top: 100px;
+
+		z-index: 20;
+		// display: none;
+	}
+
+	.share {
+		position: absolute;
+		top: 0;
+		right: 0;
+		opacity: 1;
+		font-weight: lighter;
+		font-size: 1.8em;
+		height: 48px;
+
+		.text {
+			display: block;
+			float: right;
+			line-height: 58px;
+    		height: 48px;
+		}
+
+		.arrow {
+			float: right;
+			display: block;
+			width: 36px;
+			height: 48px;
+			margin-right: 15px;
+			@include retina-image("share", 36px 48px);
+		}
+	}
+
+	.social {
+    	position: absolute;
+    	display: block;
+    	height: 48px;
+    	width: 300px;
+    	right: 0;
+    	top: 30px;
+    	z-index: 100;
+
+    	.share, .buttons {
+    		@include transition (all 0.3s ease-in-out);
+    	}
+
+    	&:hover {
+    		.share {
+    			opacity: 0;
+    		}
+    		.buttons {
+    			opacity: 1;
+    		}
+    	}
+
+    	.buttons {
+    		width: 100px;
+    		height: 48px;
+    		opacity: 0;
+    		position: absolute;
+    		top: 0;
+    		right: 0;
+    	}
+    }
+}
+
+.info-container {
+	background: image-url("info_bg.jpg") top center no-repeat;
+	height: 449px;
+}
+
+.info {
+	.aside {
+		width: 360px;
+	}
+
+	.bside {
+		width: 600px;
+	}
+
+	.icon {
+		@include retina-image("televisedicon", 305px  305px, png);
+		display: block;
+		width: 305px;
+		height: 305px;
+		margin-top: 70px;
+	}
+
+	h1 {
+		font-size: 28pt / 36px;
+		font-weight: 200;
+		margin-top: 70px;
+	}
+
+	p {
+		font-weight: 200;
+		font-size: 18px;
+		margin-top: 25px;
+    }
+
+    .appstore {
+    	float: left;
+    	border: none;
+    	border-radius: 10px;
+    	padding: 20px 55px;
+    	background-color: #2c4296;
+    	color: #57e0ff;
+    	margin-top: 15px;
+    	font-size: 1.6em;
+    	outline: none;
+    	font-weight: 200;
+    	text-decoration: none;
+    	display: block;
+
+    	&:hover {
+    		background-color: #57e0ff;
+    		color: #2c4296;
+    	}
+
+    	&:active {
+    		background-color: #47a3e9;
+    		color: #2c4296;
+    	}
+    }
+
+    // .appstore {
+    // 	@include retina-image($image-path + "/appstore_badge", 240px  70px);
+    // 	display: block;
+    // 	width: 240px;
+    // 	height: 70px;
+    // 	margin-top: 35px;
+    // 	float: left;
+    // }
+
+    .social {
+    	position: relative;
+    	height: 70px;
+    	width: 300px;
+    	float: left;
+    	margin-top: 42px;
+    	margin-left: 20px;
+
+    	.share {
+    		position: absolute;
+    		opacity: 1;
+    	}
+
+    	div {
+    		opacity: 0;
+    		@include transition (all 0.5s ease-in-out);
+    	}
+
+    	&:hover {
+    		.share {
+    			opacity: 0;
+    		}
+    		div {
+    			opacity: 1;
+    		}
+
+    	}
+
+    	.twitter {
+    		margin-bottom: 4px;
+    	}
+
+    	&:after {
+    		clear: both;
+    	}
+    }
+}
+
+.features-container {
+	background-color: #020815;
+}
+
+.features {
+	padding: 70px 0;
+
+	.aside, .bside {
+		// height: 300px;
+		// width: 490px;
+	}
+
+	.feature {
+		width: 490px;
+		// height: 112px;
+
+		.icon {
+			width: 112px;
+			height: 112px;
+			float: left;
+		}
+
+		&.redesigned .icon { @include retina-image("1", 112px 112px, png); }
+		&.background .icon { @include retina-image("2", 112px 112px, png); }
+		&.notification .icon { @include retina-image("3", 112px 112px, png); }
+		&.featured .icon { @include retina-image("4", 112px 112px, png); }
+		&.networks .icon { @include retina-image("5", 112px 112px, png); }
+		&.free .icon { @include retina-image("6", 112px 112px, png); }
+
+		p {
+			display: inline-block;
+			float: left;
+			height: 112px;
+			line-height: 112px;
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			font-weight: 200;
+			margin-left: 20px;
+		}
+	}
+}
+
+.reviews-container {
+	background: image-url("review_bg_step1.jpg") left top, left bottom no-repeat;
+	background-size: 2560px 541px;
+	height: 541px;
+	z-index: 50;
+}
+
+.reviews {
+	position: relative;
+	z-index: 1;
+	padding-top: 80px;
+	p {
+		margin: 0;
+	}
+
+	.review {
+		width: 460px;
+		height: 240px;
+		float: left;
+		text-align: center;
+		z-index: 5;
+		// margin: 0 18px;
+
+		&:nth-child(odd) {
+			margin-right: 30px;
+		}
+
+		&:last-child:after {
+			clear: both;
+		}
+	}
+
+	.rating {
+		display: inline-block;
+	}
+
+	.star {
+		@include retina-image("star", 49px  50px);
+		width: 49px;
+		height: 50px;
+		margin-right: 2px;
+		float: left;
+
+		&:last-child:after {
+			clear:both;
+		}
+	}
+
+	.quote {
+      margin-top: 10px;
+      font-size: 19px;
+      line-height: 28px;
+    }
+
+    .author {
+      color: #a4a4a4;
+      font: 11pt / 14px "proxima-nova",sans-serif;
+      margin-top: 8px;
+    }
+}
+
+.footer {
+	text-align: center;
+	padding: 80px 0;
+
+	.robocat {
+		@include retina-image("robocat", 106px  115px);
+        display: inline-block;
+        width: 106px;
+        height: 115px;
+	}
+
+	.madeby {
+		font-size: 22pt;
+		margin-top: 30px;
+
+		a {
+			font-style: italic;
+			text-decoration: none;
+			color: #fff;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.legal {
+		font-size: 16px;
+		color: #a4a4a4;
+		margin-top: 20px;
+
+		a {
+			color: #a4a4a4;
+			text-decoration: underline;
+
+			&:hover {
+				color: #d8d8d8;
+			}
+		}
+	}
+
+	.disclaimer {
+		color: #a4a4a4;
+		font: 14px / 18px "proxima-nova", sans-serif;
+		margin-top: 30px;
+	}
+
+	.space {
+		display: inline-block;
+		width: 30px;
+	}
+}
+
+#static-container {
+	@extend .noise;
+
+	background-image: image-url("review_bg_step2.jpg");
+	background-position: left top, left bottom;
+	background-repeat: no-repeat;
+	background-size: 2560px 541px;
+	height: 541px;
+	width: 100%;
+	position: absolute;
+	top: 1563px;
+	left: 0;
+	z-index: 0;
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+	.container {
+		// #static-container {
+		// 	display: none;
+		// }
+		.header-container, .info-container, .reviews-container, .footer-container, header, .info, .reviews, footer, .features-container, .features  {
+			width: 1024px;
+		}
+
+
+		.header-container .header {
+			.video {
+				left: 128px;
+			}
+			.video, .overlay, iframe {
+				width: 768px;
+				height: 432px;
+				background-size: 768px 432px;
+				// position: static;
+				// margin: 0 auto;
+				// padding-top: 10px;
+			}
+
+			.frame {
+				display: none;
+			}
+		}
+	}
+}
+
+@include media(max-width 568px) {
+	.container {
+
+		.info-container, .reviews-container, .footer-container, header, .info, .reviews, footer, .features-container, .features  {
+			width: 100%;
+			margin: 0;
+		}
+
+		#static-container {
+			display: none;
+		}
+
+		.header-container {
+			// display: none;
+			height: 200px;
+		}
+
+		.header {
+
+			.social {
+				display: none;
+			}
+			
+			.video, .overlay, iframe {
+				width: 300px;
+				height: 169px;
+				position: static;
+				margin: 0 auto;
+				padding-top: 10px;
+			}
+
+			.overlay {
+				background-size: 300px 169px;
+				background-repeat: none;
+				display: block;
+				display: none;
+			}
+
+			iframe {
+				// display: none;
+				top: 0;
+			}
+
+			.frame {
+				display: none;
+			}
+		}
+
+		.info-container {
+			height: auto;
+		}
+
+		.info {
+			text-align: center;
+			padding-top: 30px;
+
+			.aside, .bside {
+				width: auto;
+				float: none;
+			}
+
+			.icon {
+				width: 160px;
+				height: 160px;
+				background-size: 160px 160px;
+				// margin-left: 80px;
+				// margin-top: 0;
+				margin: 0 auto;
+			}
+
+			h1 {
+				line-height: 26px;
+				margin-top: 20px;
+				font-size: 21px;
+				padding: 0 5px;
+				font-weight: 400;
+			}
+
+			p {
+				font-size: 14px;
+				line-height: 20px;
+				font-weight: 300;
+				padding: 0 5px;
+				margin-top: 0;
+			}
+
+			.appstore {
+		    	// width: 240px;
+		    	// height: 70px;
+		    	// margin-top: 10px;
+		    	// margin-left: 60px;
+		    	// margin-bottom: 20px;
+		    	margin: 20px auto;
+		    	margin-bottom: 0;
+		    	width: 100%;
+		    	border-radius: 0;
+		    	font-size: 1.4em;
+		    	// padding: 20px;
+		    	width: auto;
+		    	// width: 200px;
+		    	// height: 58px;
+		    	// background-size: 200px 58px;
+		    	float: none;
+		    }
+		}
+
+		.features {
+			padding: 30px 0;
+			.aside, .bside {
+				float: none;
+			}			
+			.feature {
+				width: 100%;
+
+				.icon {
+					width: 70px;
+					height: 70px;
+					background-size: 70px 70px;
+				}
+
+
+				p {
+					height: 70px;
+					line-height: 70px;
+					font-size: 14px;
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.reviews-container {
+			display: none;
+		}
+
+		.footer {
+			padding-top: 30px;
+
+			.madeby {
+				margin-top: 10px;
+			}
+
+			.legal {
+				font-size: 14px;
+				line-height: 12px;
+			}
+
+			.space {
+				display: block;
+				width: 20px;
+			}
+
+			.disclaimer {
+				color: #a4a4a4;
+				font-size: 12px;
+				line-height: 16px;
+				margin-top: 20px;
+				padding: 0 5px;
+			}
+		}
+	}
+}
