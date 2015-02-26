@@ -1,9 +1,7 @@
-# thermodo.com
+# televisedapp.com
 
-<img src="https://travis-ci.org/robocat/thermodo.com.svg" data-bindattr-812="812" title="Build Status Images">
+<img src="https://travis-ci.org/robocat/televisedapp.com.svg" data-bindattr-812="812" title="Build Status Images">
 [![David](https://img.shields.io/david/strongloop/express.svg)]()
-
-The tiny electrical thermometer for your mobile device that lets you measure the temperature, right where you are.
 
 ## Requirements
 
