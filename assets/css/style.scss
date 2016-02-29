@@ -1,6 +1,15 @@
 $max-with: 1000px;
 $asset-pipeline: true;
 
+// Returns path for image-url
+$image-path: '/images/' !default;
+
+@if not function-exists(image-url) {
+  @function image-url($filename) {
+    @return url('#{$image-path}#{$filename}');
+  }
+}
+
 @import "normalize";
 @import "bourbon";
 @import "neat";
